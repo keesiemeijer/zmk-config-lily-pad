@@ -1,0 +1,11 @@
+file_format: "1"
+id: lily_pad
+name: Lily Pad
+type: shield
+url: https://github.com/keesmeijer/zmk-config-lily-pad
+requires:
+    - seeeduino_xiao_ble
+features:
+    - keys
+    - encoder
+    - studio
