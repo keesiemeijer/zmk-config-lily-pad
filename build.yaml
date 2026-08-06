@@ -20,7 +20,7 @@
 ---
 include:
     - board: seeeduino_xiao_ble
-      shield: lily_pad
+      shield: lily_pad rgbled_adapter
       snippet: studio-rpc-usb-uart
       cmake-args: -DCONFIG_ZMK_STUDIO=y
       artifact-name: lily_pad_studio
