@@ -1,7 +1,30 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+/*
+ * Combo key-positions (3x4):
+ * +----+----+----+
+ * |  0 |  1 |  2 |
+ * +----+----+----+
+ * |  3 |  4 |  5 |
+ * +----+----+----+
+ * |  6 |  7 |  8 |
+ * +----+----+----+
+ * |  9 | 10 | 11 |
+ * +----+----+----+
+ */
+
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        fn_momentary_combo {
+            timeout-ms = <50>;
+            key-positions = <6 8>;
+            bindings = <&mo 2>;
+        };
+    };
+
     behaviors {
         encoder_volume: encoder_volume {
             compatible = "zmk,behavior-sensor-rotate";
@@ -18,8 +41,19 @@
             bindings = <
                 &kp N1     &kp N2      &kp N3
                 &kp N4     &kp N5      &kp N6
+                &kp N7     &kp UP      &mo 1
+                &kp LEFT   &kp DOWN    &kp RIGHT
+            >;
+            sensor-bindings = <&encoder_volume>;
+        };
+
+        blender_layer {
+            display-name = "Blender";
+            bindings = <
+                &kp N1     &kp N2      &kp N3
+                &kp N4     &kp N5      &kp N6
                 &kp N7     &kp N8      &kp N9
-                &kp N1     &kp N2      &kp N4
+                &kp N1     &kp N2      &kp A
             >;
             sensor-bindings = <&encoder_volume>;
         };
@@ -27,8 +61,8 @@
         fn_layer {
             display-name = "Fn";
             bindings = <
-                &kp F1      &kp F2      &kp F3
-                &kp F4      &kp F5      &kp F6
+                &ind_bat     &ind_con     &kp F3
+                &kp F4      &bootloader   &kp F6
                 &kp C_PREV  &kp C_PP    &kp C_NEXT
                 &kp K_MUTE  &trans      &kp BSPC
             >;
