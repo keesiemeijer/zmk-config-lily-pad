@@ -3,7 +3,7 @@
 #include <behaviors/rgbled_widget.dtsi>
 
 /*
- * Combo key-positions (3x4):
+ * Combo key-positions (3x4):1117333
  * +----+----+----+
  * |  0 |  1 |  2 |
  * +----+----+----+
@@ -30,7 +30,7 @@
         encoder_volume: encoder_volume {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+            bindings = <&kp C_VOL_DN>, <&kp C_VOL_UP>;
         };
     };
 
