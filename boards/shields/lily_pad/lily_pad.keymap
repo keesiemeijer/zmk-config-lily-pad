@@ -51,7 +51,7 @@
                 &kp C_PP           &kp C_NEXT  &kp K_MUTE
                 &kp LS(LA(LC(LG(Z))))  &kp LS(LA(LC(LG(X))))  &kp LS(LA(LC(G)))
                 &kp LS(LA(LC(N1))) &kp LS(LA(LC(N2)))  &kp LS(LA(LC(T)))
-                &kp LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(L)))
+                &kp LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(SEMI)))
             >;
             sensor-bindings = <&encoder_volume>;
         };
