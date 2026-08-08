@@ -48,10 +48,10 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                &kp C_PP   &kp C_NEXT  &kp K_MUTE
-                &kp C_PREV &kp N5      &kp N6
-                &kp SPACE  &kp UP      &kp BSPC
-                &kp LEFT   &kp DOWN    &kp RIGHT
+                &kp C_PP           &kp C_NEXT  &kp K_MUTE
+                &kp LS(LA(LC(Z)))  &kp LS(LA(LC(X)))  &kp LS(LA(LC(G)))
+                &kp LS(LA(LC(1)))  &kp LS(LA(LC(2)))  &kp LS(LA(LC(T)))
+                &kp LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(L)))
             >;
             sensor-bindings = <&encoder_volume>;
         };
@@ -59,10 +59,10 @@
         blender_layer {
             display-name = "Blender";
             bindings = <
-                &kp N1     &kp N2      &kp N3
-                &kp N4     &kp N5      &kp N6
-                &kp N7     &kp N8      &kp N9
-                &kp N1     &kp N2      &kp A
+                &kp C_PP   &kp C_NEXT  &kp K_MUTE
+                &kp C_PREV &kp N5      &kp N6
+                &kp SPACE  &kp UP      &kp BSPC
+                &kp LEFT   &kp DOWN    &kp RIGHT
             >;
             sensor-bindings = <&encoder_volume>;
         };
