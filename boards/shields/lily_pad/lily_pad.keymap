@@ -117,6 +117,15 @@
                 ;
         };
 
+        // Row 0 Col 1 tap dance.
+        // next track, previous track 
+        r0_c1: tap_dance_r0c1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp C_NEXT>, < &kp C_PREV>;
+        };
+
         r1_c2: tap_dance_r1c2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -150,7 +159,7 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                &kp C_PP  &kp C_NEXT  &kp K_MUTE
+                &kp C_PP  &r0_c1  &kp K_MUTE
                 &kp LS(LA(LC(LG(LEFT))))  &kp LS(LA(LC(LG(RIGHT))))  &r1_c2
                 &r2_c0 &r2_c1 &r2_c2
                 &kp LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(SEMI)))
