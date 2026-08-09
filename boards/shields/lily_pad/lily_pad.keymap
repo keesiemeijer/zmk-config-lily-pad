@@ -121,13 +121,13 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(N1)))>, <&kp LS(LA(LC(LG(RIGHT))))>;
+            bindings = <&kp LS(LA(LC(N1)))>, <&kp LS(LA(LC(LG(LEFT))))>;
         };
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>, <&windowsize>;
+            bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(RIGHT))))>, <&windowsize>;
         };
         td2: tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
