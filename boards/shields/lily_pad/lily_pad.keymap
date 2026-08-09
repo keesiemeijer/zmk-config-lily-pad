@@ -127,7 +127,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(RIGHT))))>, <&windowsize>;
+            bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>, <&windowsize>;
         };
         td2: tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
