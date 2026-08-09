@@ -87,7 +87,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>;
+            bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>, <&kp LS(LA(LC(Y)))>;
         };
         td2: tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
