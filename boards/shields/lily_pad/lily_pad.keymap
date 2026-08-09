@@ -40,11 +40,48 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_DN>, <&kp C_VOL_UP>;
         };
+
+        nav_left_mods: nav_left_mods {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <10>;
+            wait-ms = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_press &kp LALT>
+                , <&macro_press &kp LCTRL>
+                , <&macro_press &kp LGUI>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LGUI>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LALT>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        nav_right_mods: nav_right_mods {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <10>;
+            wait-ms = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_press &kp LALT>
+                , <&macro_press &kp LCTRL>
+                , <&macro_press &kp LGUI>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LGUI>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LALT>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(N1)))>, <&kp LS(LA(LC(LG(LEFT))))>;
+            bindings = <&kp LS(LA(LC(N1)))>, <&nav_left_mods>;
         };
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
@@ -56,7 +93,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(T)))>, <&kp LS(LA(LC(LG(RIGHT))))>;
+            bindings = <&kp LS(LA(LC(T)))>, <&nav_right_mods>;
         };
     };
 
