@@ -117,19 +117,26 @@
                 ;
         };
 
-        td0: tap_dance_0 {
+        td_r1_c2: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp LG(GRAVE)>, <&kp LS(LA(LC(G)))>;
+        };
+
+        td_r2_c0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&kp LS(LA(LC(N1)))>, <&kp LS(LA(LC(LG(LEFT))))>;
         };
-        td1: tap_dance_1 {
+        td_r2_c1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>, <&windowsize>;
         };
-        td2: tap_dance_2 {
+        td_r2_c2: tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
@@ -145,7 +152,7 @@
             bindings = <
                 &kp C_PP           &kp C_NEXT  &kp K_MUTE
                 &kp LS(LA(LC(LG(LEFT))))  &kp LS(LA(LC(LG(RIGHT))))  &kp LS(LA(LC(G)))
-                &td0 &td1 &td2
+                &td_r2_c0 &td_r2_c1 &td2
                 &kp LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(SEMI)))
             >;
             sensor-bindings = <&encoder_volume>;
