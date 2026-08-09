@@ -40,6 +40,46 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_DN>, <&kp C_VOL_UP>;
         };
+                // Set window to specific size (1400 x 1080) and move to center
+        // Mac Shortcuts app is used to resize and move windows
+        // Alfred is used to fire the Shortcuts
+        windowsize: windowsize {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <150>;
+            bindings
+                = <&macro_press &kp LS(LA(LC(U)))>
+                , <&macro_release &kp LS(LA(LC(U)))>
+                ,<&macro_press &kp LS(LA(LC(Y)))>
+                , <&macro_release &kp LS(LA(LC(Y)))>
+                ,<&macro_press &kp LS(LA(LC(I)))>
+                , <&macro_release &kp LS(LA(LC(I)))>
+                ;
+        };
+
+        // macOS: go to top of page/window, then return to layer 0
+        page_top_layer0: page_top_layer0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+            = <&macro_press &kp LG(UP)>
+            , <&macro_release &kp LG(UP)>
+                , <&macro_press &to 0>
+                , <&macro_release &to 0>
+                ;
+        };
+
+        // macOS: go to bottom of page/window, then return to layer 0
+        page_bottom_layer0: page_bottom_layer0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+            = <&macro_press &kp LG(DOWN)>
+            , <&macro_release &kp LG(DOWN)>
+                , <&macro_press &to 0>
+                , <&macro_release &to 0>
+                ;
+        };
 
         nav_left_mods: nav_left_mods {
             compatible = "zmk,behavior-macro";
@@ -81,19 +121,19 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(N1)))>, <&nav_left_mods>;
+            bindings = <&kp LS(LA(LC(N1)))>, <&kp LS(LA(LC(LG(RIGHT))))>;
         };
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>, <&kp LS(LA(LC(Y)))>;
+            bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>, <&windowsize>;
         };
         td2: tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(T)))>, <&nav_right_mods>;
+            bindings = <&kp LS(LA(LC(T)))>, <&kp LS(LA(LC(LG(LEFT))))>;
         };
     };
 
