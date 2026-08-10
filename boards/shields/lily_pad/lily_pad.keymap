@@ -164,7 +164,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings =  <&kp LS(LA(LC(4))))>, <&kp LS(LA(LC(5)))>,  <&kp LS(LA(LC(6)))>;
+            bindings =  <&kp LS(LA(LC(4)))>, <&kp LS(LA(LC(5)))>,  <&kp LS(LA(LC(6)))>;
         };
 
         r1_c1: tap_dance_r1c1 {
