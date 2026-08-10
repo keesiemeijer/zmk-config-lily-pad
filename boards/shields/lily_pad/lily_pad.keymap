@@ -164,7 +164,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings =  <&kp LS(LA(LC(4)))>, <&kp LS(LA(LC(5)))>,  <&kp LS(LA(LC(6)))>;
+            bindings =  <&kp LS(LA(LC(N4)))>, <&kp LS(LA(LC(N5)))>,  <&kp LS(LA(LC(N6)))>;
         };
 
         r1_c1: tap_dance_r1c1 {
@@ -208,7 +208,7 @@
             display-name = "Base";
             bindings = <
                 &kp C_PP  &r0_c1  &kp K_MUTE
-                &kp LS(LA(LC(4)))  &browser_tab_1  &r1_c2
+                r1_c0  r1_c1  &r1_c2
                 &r2_c0 &r2_c1 &r2_c2
                 &kp LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(SEMI)))
             >;
