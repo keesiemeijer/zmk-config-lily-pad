@@ -57,6 +57,40 @@
                 ;
         };
 
+        // Open browser via Alfred, wait for focus, then switch to tab 1 (Cmd+1)
+        browser_tab_1: browser_tab_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <300>;
+            bindings
+                = <&macro_press &kp LS(LA(LC(B)))>
+                , <&macro_release &kp LS(LA(LC(B)))>
+                , <&macro_tap &kp LG(N1)>
+                ;
+        };
+
+        browser_tab_2: browser_tab_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <300>;
+            bindings
+                = <&macro_press &kp LS(LA(LC(B)))>
+                , <&macro_release &kp LS(LA(LC(B)))>
+                , <&macro_tap &kp LG(N2)>
+                ;
+        };
+
+        browser_tab_3: browser_tab_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <300>;
+            bindings
+                = <&macro_press &kp LS(LA(LC(B)))>
+                , <&macro_release &kp LS(LA(LC(B)))>
+                , <&macro_tap &kp LG(N3)>
+                ;
+        };
+
         // macOS: go to top of page/window, then return to layer 0
         page_top_layer0: page_top_layer0 {
             compatible = "zmk,behavior-macro";
@@ -126,6 +160,19 @@
             bindings = <&kp C_NEXT>, < &kp C_PREV>;
         };
         
+        r1_c0: tap_dance_r1c0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings =  <&kp LS(LA(LC(4))))>, <&kp LS(LA(LC(5)))>,  <&kp LS(LA(LC(6)))>;
+        };
+
+        r1_c1: tap_dance_r1c1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings =  <&browser_tab_1>, <&browser_tab_2>, <&browser_tab_3>;
+        };
 
         r1_c2: tap_dance_r1c2 {
             compatible = "zmk,behavior-tap-dance";
@@ -161,7 +208,7 @@
             display-name = "Base";
             bindings = <
                 &kp C_PP  &r0_c1  &kp K_MUTE
-                &kp LS(LA(LC(N7)))  &kp LS(LA(LC(N8)))  &r1_c2
+                &r1_c0  &kp LS(LA(LC(N8)))  &r1_c2
                 &r2_c0 &r2_c1 &r2_c2
                 &kp LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(SEMI)))
             >;
