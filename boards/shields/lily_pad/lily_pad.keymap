@@ -218,21 +218,37 @@
                 &kp C_PP           &r0_c1             &kp K_MUTE
                 &r1_c0             &r1_c1             &r1_c2
                 &r2_c0             &r2_c1             &r2_c2
-                &kp LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(SEMI)))
+                &lt 1 LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(SEMI)))
             >;
             sensor-bindings = <&encoder_volume>;
         };
 
-        blender_layer {
+        // TD = tap dance.
+        // ╭─────────────────────────────────────────────╮
+        // │               │             │               │
+        // │ open Blender  │ open Signal │ open Mail     │
+        // │ open Swinsian │ open Vienna │ open Calendar │
+        // │               │             │               │
+        // ╰─────────────────────────────────────────────╯
+
+        layer_1 {
             display-name = "Blender";
             bindings = <
-                &kp C_PP   &kp C_NEXT  &kp K_MUTE
-                &kp C_PREV &kp N5      &kp N6
-                &kp SPACE  &kp UP      &kp BSPC
-                &kp LEFT   &kp DOWN    &kp RIGHT
+                &trans             &trans            &trans
+                &kp LS(LA(LC(X)))  &kp LS(LA(LC(A))) &kp LS(LA(LC(M)))
+                &kp LS(LA(LC(D)))  &kp LS(LA(LC(R))) &kp LS(LA(LC(C)))
+                &trans             &trans            &trans
             >;
             sensor-bindings = <&encoder_volume>;
         };
+
+        // TD = tap dance.
+        // ╭────────────────────╮
+        // │      │      │      │
+        // │      │      │      │
+        // │      │      │      │
+        // │      │      │      │
+        // ╰────────────────────╯
 
         fn_layer {
             display-name = "Fn";
@@ -244,5 +260,13 @@
             >;
             sensor-bindings = <&encoder_volume>;
         };
+
+        // TD = tap dance.
+        // ╭────────────────────╮
+        // │      │      │      │
+        // │      │      │      │
+        // │      │      │      │
+        // │      │      │      │
+        // ╰────────────────────╯
     };
 };
