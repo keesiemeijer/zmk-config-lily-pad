@@ -16,23 +16,6 @@
  */
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-       mo_layer_1_combo {
-            timeout-ms = <50>;
-            key-positions = <6 9>;
-            bindings = <&mo 1>;
-        };
-
-        mo_layer_2_combo {
-            timeout-ms = <50>;
-            key-positions = <10 7>;
-            bindings = <&mo 2>;
-        };
-
- 
-    };
 
     behaviors {
         encoder_volume: encoder_volume {
@@ -40,7 +23,8 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_DN>, <&kp C_VOL_UP>;
         };
-                // Set window to specific size (1400 x 1080) and move to center
+        
+        // Set window to specific size (1400 x 1080) and move to center
         // Mac Shortcuts app is used to resize and move windows
         // Alfred is used to fire the Shortcuts
         windowsize: windowsize {
@@ -69,6 +53,7 @@
                 ;
         };
 
+        // Open browser via Alfred, wait for focus, then switch to tab 2 (Cmd+2)
         browser_tab_2: browser_tab_2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -80,6 +65,7 @@
                 ;
         };
 
+        // Open browser via Alfred, wait for focus, then switch to tab 3 (Cmd+3)
         browser_tab_3: browser_tab_3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -112,42 +98,6 @@
             , <&macro_release &kp LG(DOWN)>
                 , <&macro_press &to 0>
                 , <&macro_release &to 0>
-                ;
-        };
-
-        nav_left_mods: nav_left_mods {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            tap-ms = <10>;
-            wait-ms = <0>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_press &kp LALT>
-                , <&macro_press &kp LCTRL>
-                , <&macro_press &kp LGUI>
-                , <&macro_tap &kp LEFT>
-                , <&macro_release &kp LGUI>
-                , <&macro_release &kp LCTRL>
-                , <&macro_release &kp LALT>
-                , <&macro_release &kp LSHFT>
-                ;
-        };
-
-        nav_right_mods: nav_right_mods {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            tap-ms = <10>;
-            wait-ms = <0>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_press &kp LALT>
-                , <&macro_press &kp LCTRL>
-                , <&macro_press &kp LGUI>
-                , <&macro_tap &kp RIGHT>
-                , <&macro_release &kp LGUI>
-                , <&macro_release &kp LCTRL>
-                , <&macro_release &kp LALT>
-                , <&macro_release &kp LSHFT>
                 ;
         };
 
@@ -215,26 +165,26 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                &kp C_PP           &r0_c1             &kp K_MUTE
-                &r1_c0             &r1_c1             &r1_c2
-                &r2_c0             &r2_c1             &r2_c2
-                &lt 1 LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &kp LS(LA(LC(SEMI)))
+                &kp C_PP             &r0_c1             &kp K_MUTE
+                &r1_c0               &r1_c1             &r1_c2
+                &r2_c0               &r2_c1             &r2_c2
+                &lt 1 LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &lt 2 &kp LS(LA(LC(SEMI)))
             >;
             sensor-bindings = <&encoder_volume>;
         };
 
         // TD = tap dance.
-        // ╭─────────────────────────────────────────────╮
-        // │               │             │               │
-        // │ open Blender  │ open Signal │ open Mail     │
-        // │ open Swinsian │ open Vienna │ open Calendar │
-        // │               │             │               │
-        // ╰─────────────────────────────────────────────╯
+        // ╭────────────────────────────────────────────────────────────╮
+        // │ battery indicator │ bluetooth connectivity │ mute          │
+        // │ open Blender      │ open Signal            │ open Mail     │
+        // │ open Swinsian     │ open Vienna            │ open Calendar │
+        // │                   │                        │               │
+        // ╰────────────────────────────────────────────────────────────╯
 
         layer_1 {
             display-name = "Blender";
             bindings = <
-                &trans             &trans            &trans
+                &ind_bat           &ind_con          &trans
                 &kp LS(LA(LC(X)))  &kp LS(LA(LC(A))) &kp LS(LA(LC(M)))
                 &kp LS(LA(LC(D)))  &kp LS(LA(LC(R))) &kp LS(LA(LC(C)))
                 &trans             &trans            &trans
@@ -243,20 +193,20 @@
         };
 
         // TD = tap dance.
-        // ╭────────────────────╮
-        // │      │      │      │
-        // │      │      │      │
-        // │      │      │      │
-        // │      │      │      │
-        // ╰────────────────────╯
+        // ╭────────────────────────────────────────────────────────────────────────╮
+        // │ battery indicator       │ bluetooth connectivity │ mute                │
+        // │ clear bluetooth profile │ enter bootloader mode  │                     │
+        // │ bluetooth profile 1     │ bluetooth profile 2    │ bluetooth profile 3 │
+        // │                         │                        │                     │
+        // ╰────────────────────────────────────────────────────────────────────────╯
 
-        fn_layer {
+        hardware_layer {
             display-name = "Fn";
             bindings = <
-                &ind_bat     &ind_con     &kp F3
-                &kp F4      &bootloader   &kp F6
-                &kp C_PREV  &kp C_PP    &kp C_NEXT
-                &kp K_MUTE  &trans      &kp BSPC
+                &trans        &trans         &trans
+                &bt BT_CLR    &bootloader    &trans
+                &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2
+                &trans        &trans         &trans
             >;
             sensor-bindings = <&encoder_volume>;
         };
