@@ -102,8 +102,13 @@
                 ;
         };
 
-        // Row 0 Col 1 tap dance.
-        // next track, previous track 
+        r0_c0: tap_dance_r0c0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp C_PP>, <&kp LG(UP)>;
+        };
+
         r0_c1: tap_dance_r0c1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -138,17 +143,26 @@
             tapping-term-ms = <300>;
             bindings = <&kp LS(LA(LC(N1)))>, <&kp LS(LA(LC(LG(LEFT))))>;
         };
+
         r2_c1: tap_dance_rdc1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>, <&windowsize>;
         };
+
         r2_c2: tap_dance_r2c2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&kp LS(LA(LC(T)))>, <&kp LS(LA(LC(LG(RIGHT))))>;
+        };
+
+        r3_c0: tap_dance_r2c2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&lt 1 LS(LA(LC(B)))>, <&k LG(DOWN)>;
         };
     };
 
@@ -169,7 +183,7 @@
                 &kp C_PP             &r0_c1             &kp K_MUTE
                 &r1_c0               &r1_c1             &r1_c2
                 &r2_c0               &r2_c1             &r2_c2
-                &lt 1 LS(LA(LC(B)))  &kp LS(LA(LC(K)))  &lt 2 LS(LA(LC(SEMI)))
+                &r3_c0               &kp LS(LA(LC(K)))  &lt 2 LS(LA(LC(SEMI)))
             >;
             sensor-bindings = <&encoder_volume>;
         };
