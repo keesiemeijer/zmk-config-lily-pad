@@ -164,26 +164,43 @@
             tapping-term-ms = <300>;
             bindings = <&lt 1 LS(LA(LC(B)))>, <&kp LG(DOWN)>;
         };
+
+        r3_c1: tap_dance_r3c1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp LS(LA(LC(K)))>,<&kp LS(LA(LC(J)))>;
+        };
+
+        r3_c2: tap_dance_r3c2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&lt 2 LS(LA(LC(SEMI)))>,<&kp LS(LA(LC(L)))>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        // TD = tap dance.
-        // ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        // │ play/pause                               │ TD 1: next track - 2: previous track                             │ mute                                                            │
-        // │ open file (in finder): TD 1 - 3          │ open browser tab: TD 1 - 3                                       │ TD 1: cycle through app windows - 2: focus frontmost app window │
-        // │ TD 1: open VS Code - 2: move window left │ TD 1: open Sublime Text - 2: window fill screen - 3: window size │ TD 1: open Terminal - 2: move window right                      │
-        // │ open Browser                             │ open Finder Downloads                                            │ open Finder Documents/folders                                   │
-        // ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        // TD = tap dance. https://zmk.dev/docs/keymaps/behaviors/tap-dance
+        // LT = Layer tap . https://zmk.dev/docs/keymaps/behaviors/hold-tap#layer-tap
+        // L1 = layer 1,  L2 = layer 2, etc...
+
+        // ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        // │ TD 1: play/pause - TD 2: scroll to top                      │ TD 1: next track - TD 2: previous track                             │ mute                                                               │
+        // │ TD 1 - 3: open file (in finder)                             │ TD 1 - 3: open browser tab                                          │ TD 1: cycle through app windows - TD 2: focus frontmost app window │
+        // │ TD 1: open VS Code - TD 2: move window left                 │ TD 1: open Sublime Text - TD 2: window fill screen - 3: window size │ TD 1: open Terminal - TD 2: move window right                      │
+        // │ LT: L1 - TD 1: open Browser - TD 2: Scroll to bottom        │ TD 1: open Finder Downloads - TD 2: open Finder Desktop             │ LT: L2 - TD 1: open Finder Documents/folders                       │
+        // ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
         default_layer {
             display-name = "Base";
             bindings = <
-                &r0_c0  &r0_c1             &kp K_MUTE
-                &r1_c0  &r1_c1             &r1_c2
-                &r2_c0  &r2_c1             &r2_c2
-                &r3_c0  &kp LS(LA(LC(K)))  &lt 2 LS(LA(LC(SEMI)))
+                &r0_c0  &r0_c1   &kp K_MUTE
+                &r1_c0  &r1_c1   &r1_c2
+                &r2_c0  &r2_c1   &r2_c2
+                &r3_c0  &r3_c1   r3_c2
             >;
             sensor-bindings = <&encoder_volume>;
         };
