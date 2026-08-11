@@ -209,10 +209,10 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                &r0_c0  &r0_c1   &kp K_MUTE
-                &r1_c0  &r1_c1   &r1_c2
-                &r2_c0  &r2_c1   &r2_c2
-                &r3_c0  &r3_c1   &r3_c2
+                &r0_c0  &r0_c1          &kp K_MUTE
+                &r1_c0  &browser_tab_9  &r1_c2
+                &r2_c0  &r2_c1          &r2_c2
+                &r3_c0  &r3_c1          &r3_c2
             >;
             sensor-bindings = <&encoder_volume>;
         };
@@ -229,7 +229,7 @@
             display-name = "Blender";
             bindings = <
                 &ind_bat           &ind_con          &trans
-                &browser_tab_9  &kp LS(LA(LC(A))) &kp LS(LA(LC(M)))
+                &browser_tab_9     &kp LS(LA(LC(A))) &kp LS(LA(LC(M)))
                 &kp LS(LA(LC(D)))  &kp LS(LA(LC(R))) &kp LS(LA(LC(C)))
                 &trans             &kp LS(LA(LC(X))) &trans
             >;
