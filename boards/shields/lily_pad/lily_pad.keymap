@@ -268,7 +268,7 @@
                 &ind_bat  &ind_con  &trans
                 &trans    &trans    &trans
                 &trans    &trans    &trans
-                LA(LG(LEFT)) &trans   &kp LA(LG(RIGHT))
+                &kp LA(LG(LEFT)) &trans  &kp LA(LG(RIGHT))
             >;
             sensor-bindings = <&encoder_volume>;
         };
