@@ -1,4 +1,4 @@
-#include <behaviors.dtsi>
+6#include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <behaviors/rgbled_widget.dtsi>
@@ -19,6 +19,7 @@
 / {
 
     behaviors {
+        // Encoder volume up and down
         encoder_volume: encoder_volume {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -31,7 +32,7 @@
         windowsize: windowsize {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <150>;
+            wait-ms = <150>; 
             bindings
                 = <&macro_press &kp LS(LA(LC(U)))>
                 , <&macro_release &kp LS(LA(LC(U)))>
@@ -42,7 +43,9 @@
                 ;
         };
 
-        // Open browser via Alfred, wait for focus, then switch to tab 1 (Cmd+1)
+        // Open browser with Alfred, wait for focus, then switch to tab
+
+        // Open browser at tab 1
         browser_tab_1: browser_tab_1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -54,7 +57,7 @@
                 ;
         };
 
-        // Open browser via Alfred, wait for focus, then switch to tab 2 (Cmd+2)
+        // Open browser at tab 2
         browser_tab_2: browser_tab_2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -66,7 +69,7 @@
                 ;
         };
 
-        // Open browser via Alfred, wait for focus, then switch to tab 3 (Cmd+3)
+        // Open browser at tab 3
         browser_tab_3: browser_tab_3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -78,7 +81,7 @@
                 ;
         };
 
-        // Open browser via Alfred, wait for focus, then switch to tab 9 (last tab) (Cmd+9)
+        // Open browser at tab 9 (Last tab hopefully)
         browser_tab_9: browser_tab_9 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -90,7 +93,9 @@
                 ;
         };
 
-        // macOS: go to top of page/window, then return to layer 0
+        // NOT USED
+        // Go to top of page/window
+        // then return to layer 0
         page_top_layer0: page_top_layer0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -102,7 +107,9 @@
                 ;
         };
 
-        // macOS: go to bottom of page/window, then return to layer 0
+        // NOT USED
+        // Go to bottom of page/window
+        // then return to layer 0
         page_bottom_layer0: page_bottom_layer0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -114,6 +121,7 @@
                 ;
         };
 
+        // Play/Pause - Go to top of page/window
         r0_c0: tap_dance_r0c0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -121,6 +129,7 @@
             bindings = <&kp C_PP>, <&kp LG(UP)>;
         };
 
+        // Next track - Preveous track
         r0_c1: tap_dance_r0c1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -128,6 +137,7 @@
             bindings = <&kp C_NEXT>, < &kp C_PREV>;
         };
         
+        // Browser tab 1, tab 2, tab 3
         r1_c0: tap_dance_r1c0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -135,6 +145,7 @@
             bindings =  <&browser_tab_1>, <&browser_tab_2>, <&browser_tab_3>;
         };
 
+        // NOT USED
         r1_c1: tap_dance_r1c1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -142,6 +153,7 @@
             bindings =  <&kp LS(LA(LC(N4)))>, <&kp LS(LA(LC(N5)))>,  <&kp LS(LA(LC(N6)))>;
         };
 
+        // Cycle windows, Focus front window
         r1_c2: tap_dance_r1c2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -149,6 +161,7 @@
             bindings = <&kp LG(GRAVE)>, <&kp LS(LA(LC(G)))>;
         };
 
+        // VS Code - Move window to left
         r2_c0: tap_dance_r2c0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -156,6 +169,7 @@
             bindings = <&kp LS(LA(LC(N1)))>, <&kp LS(LA(LC(LG(LEFT))))>;
         };
 
+        // Sublime Text - Window Full - Window resize
         r2_c1: tap_dance_rdc1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -163,6 +177,7 @@
             bindings = <&kp LS(LA(LC(N2)))>, <&kp LS(LA(LC(LG(F))))>, <&windowsize>;
         };
 
+        // Terminal - Move window to right
         r2_c2: tap_dance_r2c2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -170,6 +185,7 @@
             bindings = <&kp LS(LA(LC(T)))>, <&kp LS(LA(LC(LG(RIGHT))))>;
         };
 
+        // Layer 1 on hold - open Browser - Go to bottom of page
         r3_c0: tap_dance_r3c0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -177,18 +193,20 @@
             bindings = <&lt 1 LS(LA(LC(B)))>, <&kp LG(DOWN)>;
         };
 
+        // Finder: Downloads - Finder: Desktop
         r3_c1: tap_dance_r3c1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp LS(LA(LC(K)))>,<&kp LS(LA(LC(J)))>;
+            bindings = <&lt 2 LS(LA(LC(K)))>,<&kp LS(LA(LC(J)))>;
         };
 
+        // Finder: folders - Finder: Documents
         r3_c2: tap_dance_r3c2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&lt 2 LS(LA(LC(SEMI)))>,<&kp LS(LA(LC(L)))>;
+            bindings = <&lt 3 LS(LA(LC(SEMI)))>,<&kp LS(LA(LC(L)))>;
         };
     };
 
@@ -201,7 +219,7 @@
 
         // ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
         // │ TD 1: play/pause - TD 2: scroll to top                      │ TD 1: next track - TD 2: previous track                             │ mute                                                               │
-        // │ TD 1 - 3: open file (in finder)                             │ TD 1 - 3: open browser tab                                          │ TD 1: cycle through app windows - TD 2: focus frontmost app window │
+        // │ TD 1-3: open browser tab at position                        │ open browser tab 9                                                  │ TD 1: cycle through app windows - TD 2: focus frontmost app window │
         // │ TD 1: open VS Code - TD 2: move window left                 │ TD 1: open Sublime Text - TD 2: window fill screen - 3: window size │ TD 1: open Terminal - TD 2: move window right                      │
         // │ LT: L1 - TD 1: open Browser - TD 2: Scroll to bottom        │ TD 1: Finder dir Downloads - TD 2: Finder dir Desktop               │ LT: L2 - TD 1: Finder dir folders - TD2: finder dir Documents      │
         // ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
@@ -220,18 +238,37 @@
         // TD = tap dance.
         // ╭─────────────────────────────────────────────────────────────╮
         // │ battery indicator  │ bluetooth connectivity │ mute          │
-        // │ open Browser tab 9 │ open Signal            │ open Mail     │
-        // │ open Swinsian      │ open Vienna            │ open Calendar │
-        // │                    │ open Blender           │               │
+        // │ open Blender       │ open Signal            │ open Calendar │
+        // │ open Swinsian      │ open Vienna            │ open Mail     │
+        // │                    │                        │               │
         // ╰─────────────────────────────────────────────────────────────╯
 
         layer_1 {
             display-name = "Blender";
             bindings = <
                 &ind_bat           &ind_con          &trans
-                &browser_tab_9     &kp LS(LA(LC(A))) &kp LS(LA(LC(M)))
-                &kp LS(LA(LC(D)))  &kp LS(LA(LC(R))) &kp LS(LA(LC(C)))
-                &trans             &kp LS(LA(LC(X))) &trans
+                &kp LS(LA(LC(X)))  &kp LS(LA(LC(A))) &kp LS(LA(LC(C)))
+                &kp LS(LA(LC(D)))  &kp LS(LA(LC(R))) &kp LS(LA(LC(M)))
+                &trans             &trans            &trans
+            >;
+            sensor-bindings = <&encoder_volume>;
+        };
+
+       // TD = tap dance.
+        // ╭─────────────────────────────────────────────────────────────╮
+        // │ battery indicator  │ bluetooth connectivity │ mute          │
+        // │ open Blender       │ open Signal            │ open Calendar │
+        // │ open Swinsian      │ open Vienna            │ open Mail     │
+        // │                    │                        │               │
+        // ╰─────────────────────────────────────────────────────────────╯
+
+        layer_2 {
+            display-name = "Blender";
+            bindings = <
+                &ind_bat  &ind_con  &trans
+                &trans    &trans    &trans
+                &trans    &trans    &trans
+                LA(LG(LEFT)) &trans   &kp LA(LG(RIGHT))
             >;
             sensor-bindings = <&encoder_volume>;
         };
