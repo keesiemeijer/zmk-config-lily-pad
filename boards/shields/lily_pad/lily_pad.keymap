@@ -254,21 +254,21 @@
             sensor-bindings = <&encoder_volume>;
         };
 
-       // TD = tap dance.
-        // ╭─────────────────────────────────────────────────────────────╮
-        // │ battery indicator  │ bluetooth connectivity │ mute          │
-        // │ open Blender       │ open Signal            │ open Calendar │
-        // │ open Swinsian      │ open Vienna            │ open Mail     │
-        // │                    │                        │               │
-        // ╰─────────────────────────────────────────────────────────────╯
+        // TD = tap dance.
+        // ╭──────────────────────────────────────────────────────────╮
+        // │                  │                   │                   │
+        // │                  │                   │                   │
+        // │ Move tab to left │                   │ Move tab to right │
+        // │ Go to tab left   │                   │ Go to tab right   │
+        // ╰──────────────────────────────────────────────────────────╯
 
         layer_2 {
             display-name = "Blender";
             bindings = <
-                &ind_bat  &ind_con  &trans
-                &trans    &trans    &trans
-                &trans    &trans    &trans
-                &kp LA(LG(LEFT)) &trans  &kp LA(LG(RIGHT))
+                &ind_bat           &ind_con  &trans
+                &trans             &trans    &trans
+                &kp RC(RS(PG_UP))  &trans    &kp RC(RS(PG_DN))
+                &kp LA(LG(LEFT))   &trans    &kp LA(LG(RIGHT))
             >;
             sensor-bindings = <&encoder_volume>;
         };
