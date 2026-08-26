@@ -43,6 +43,19 @@
                 ;
         };
 
+        // Switch to layer 0 before using Alfred app
+        alfred: alfred {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <300>;
+            bindings
+                = <&macro_press &to 0>
+                , <&macro_release &to 0>
+                ,<&macro_press &kp LA(SPACE)>
+                , <&macro_release &kp LA(SPACE)>
+                ;
+        };
+
         // Open browser with Alfred, wait for focus, then switch to tab
 
         // Open browser at tab 1
@@ -136,21 +149,29 @@
             tapping-term-ms = <300>;
             bindings = <&kp C_NEXT>, < &kp C_PREV>;
         };
+
+        // Mute - Alfred - Go to top of page/window
+        r0_c2: tap_dance_r0c2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp K_MUTE>, <&alfred>, <&kp LG(UP)>;
+        };
         
-        // Browser tab 1, tab 2, tab 3
+        // Dynamic slot 1
         r1_c0: tap_dance_r1c0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings =  <&browser_tab_1>, <&browser_tab_2>, <&browser_tab_3>;
+            bindings =  <&kp LS(LA(LC(N4)))>;
         };
 
-        // NOT USED
+        // Dynamic slot 2
         r1_c1: tap_dance_r1c1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings =  <&kp LS(LA(LC(N4)))>, <&kp LS(LA(LC(N5)))>,  <&kp LS(LA(LC(N6)))>;
+            bindings =  <&kp LS(LA(LC(N5)))>;
         };
 
         // Cycle windows, Focus front window
@@ -185,12 +206,12 @@
             bindings = <&kp LS(LA(LC(T)))>, <&kp LS(LA(LC(LG(RIGHT))))>;
         };
 
-        // Layer 1 on hold - open Browser - Go to bottom of page
+        // Layer 1 on hold - open Browser - Open Browser at tab 1, Open Browser at tab 9
         r3_c0: tap_dance_r3c0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&lt 1 LS(LA(LC(B)))>, <&kp LG(DOWN)>;
+            bindings = <&lt 1 LS(LA(LC(B)))>, <&browser_tab_1>, <&browser_tab_9>;
         };
 
         // Finder: Downloads - Finder: Desktop
@@ -206,7 +227,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&lt 3 LS(LA(LC(SEMI)))>,<&kp LS(LA(LC(L)))>;
+            bindings = <&lt 3 LS(LA(LC(SEMI)))>,<&kp LS(LA(LC(L)))><&kp LG(DOWN)>;
         };
     };
 
@@ -217,18 +238,18 @@
         // LT = Layer tap . https://zmk.dev/docs/keymaps/behaviors/hold-tap#layer-tap
         // L1 = layer 1,  L2 = layer 2, etc...
 
-        // ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        // │ TD 1: play/pause - TD 2: scroll to top                      │ TD 1: next track - TD 2: previous track                             │ mute                                                               │
-        // │ TD 1-3: open browser tab at position                        │ open browser tab 9                                                  │ TD 1: cycle through app windows - TD 2: focus frontmost app window │
-        // │ TD 1: open VS Code - TD 2: move window left                 │ TD 1: open Sublime Text - TD 2: window fill screen - 3: window size │ TD 1: open Terminal - TD 2: move window right                      │
-        // │ LT: L1 - TD 1: open Browser - TD 2: Scroll to bottom        │ TD 1: Finder dir Downloads - TD 2: Finder dir Desktop               │ LT: L2 - TD 1: Finder dir folders - TD2: finder dir Documents      │
-        // ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        // ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        // │ TD 1: play/pause - TD 2: scroll to top                                  │ TD 1: next track - TD 2: previous track                             │ TD 1: mute - TD 2: Go to top                                                       │
+        // │ TD 1: Dynamic Alfred slot 1                                             │ TD 1: Dynamic Alfred slot 2                                         │ TD 1: cycle through app windows - TD 2: focus frontmost app window                 │
+        // │ TD 1: open VS Code - TD 2: move window left                             │ TD 1: open Sublime Text - TD 2: window fill screen - 3: window size │ TD 1: open Terminal - TD 2: move window right                                      │
+        // │ LT: L1 - TD 1: open Browser - TD 2: Browser tab 1 - TD 3: Browser tab 9 │ TD 1: Finder dir Downloads - TD 2: Finder dir Desktop               │ LT: L2 - TD 1: Finder dir folders - TD2: finder dir Documents - TD 3: Go to bottom │
+        // ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
         default_layer {
             display-name = "Base";
             bindings = <
-                &r0_c0  &r0_c1          &kp K_MUTE
-                &r1_c0  &browser_tab_9  &r1_c2
+                &r0_c0  &r0_c1          &r0_c2
+                &r1_c0  &r1_c1          &r1_c2
                 &r2_c0  &r2_c1          &r2_c2
                 &r3_c0  &r3_c1          &r3_c2
             >;
