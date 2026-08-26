@@ -147,7 +147,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp C_NEXT>, <&kp C_PREV>, <&kp LA(DOWN)>;
+            bindings = <&kp C_NEXT>, <&kp C_PREV>, <&kp LA(UP)>;
         };
 
         // Mute - Alfred - Go to top of page/window
