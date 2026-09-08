@@ -158,7 +158,7 @@
             bindings = <&kp K_MUTE>, <&alfred>, <&kp LG(UP)>;
         };
         
-        // Dynamic slot 1
+        // Dynamic slot 1, slot 2, slot 3
         r1_c0: tap_dance_r1c0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -166,7 +166,7 @@
             bindings =  <&kp LS(LA(LC(N4)))>,<&kp LS(LA(LC(N5)))>,<&kp LS(LA(LC(N6)))>;
         };
 
-        // Dynamic slot 2
+        // Dynamic slot 4, slot 5, slot 6
         r1_c1: tap_dance_r1c1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -211,7 +211,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&lt 1 LS(LA(LC(B)))>, <&browser_tab_1>, <&browser_tab_9>;
+            bindings = <&lt 1 LS(LA(LC(B)))>, <&browser_tab_1>,<&browser_tab_2>,<&browser_tab_3>,<&browser_tab_9>;
         };
 
         // Finder: Downloads - Finder: Desktop - Finder go to bottom
@@ -239,10 +239,10 @@
         // L1 = layer 1,  L2 = layer 2, etc...
 
         // ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        // │ TD 1: play/pause - TD 2: scroll to top                                  │ TD 1: next track - TD 2: previous track - TD 3: Finder go to top              │ TD 1: mute - TD 2: Afred app - TD 3: Go to top                             │
-        // │ TD 1: Dynamic Alfred slot 1                                             │ TD 1: Dynamic Alfred slot 2                                                   │ TD 1: cycle through app windows - TD 2: focus frontmost app window         │
-        // │ TD 1: open VS Code - TD 2: move window left                             │ TD 1: open Sublime Text - TD 2: window fill screen - 3: window size           │ TD 1: open Terminal - TD 2: move window right                              │
-        // │ LT: L1 - TD 1: open Browser - TD 2: Browser tab 1 - TD 3: Browser tab 9 │ TD 1: Finder dir Downloads - TD 2: Finder Desktop - TD 3: Finder go to bottom │ LT: L2 - TD 1: Finder folders - TD2: finder Documents - TD 3: Go to bottom │
+        // │ TD 1: play/pause - TD 2: scroll to top                                │ TD 1: next track - TD 2: previous track - TD 3: Finder go to top              │ TD 1: mute - TD 2: Afred app - TD 3: Go to top                             │
+        // │ TD 1: Dynamic Alfred slot 1                                           │ TD 1: Dynamic Alfred slot 2                                                   │ TD 1: cycle through app windows - TD 2: focus frontmost app window         │
+        // │ TD 1: open VS Code - TD 2: move window left                           │ TD 1: open Sublime Text - TD 2: window fill screen - 3: window size           │ TD 1: open Terminal - TD 2: move window right                              │
+        // │ LT: L1 - TD 1 to 4: open Browser - open tab 1 - tab 2 - tab 3 - tab 9 │ TD 1: Finder dir Downloads - TD 2: Finder Desktop - TD 3: Finder go to bottom │ LT: L2 - TD 1: Finder folders - TD2: finder Documents - TD 3: Go to bottom │
         // ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
         default_layer {
