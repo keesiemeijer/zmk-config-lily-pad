@@ -163,7 +163,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings =  <&kp LS(LA(LC(N4)))>;
+            bindings =  <&kp LS(LA(LC(N4)))>,<&kp LS(LA(LC(N5)))>,<&kp LS(LA(LC(N6)))>;
         };
 
         // Dynamic slot 2
@@ -171,7 +171,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings =  <&kp LS(LA(LC(N5)))>;
+            bindings =  <&kp LS(LA(LC(N7)))>,<&kp LS(LA(LC(N8)))>,<&kp LS(LA(LC(N9)))>;
         };
 
         // Cycle windows, Focus front window
