@@ -219,7 +219,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&lt 2 LS(LA(LC(K)))>,<&kp LS(LA(LC(J)))>,<&kp LA(DOWN)>;
+            bindings = <&lt 2 LS(LA(LC(K)))>,<&kp LS(LA(LC(J)))>,<&kp LS(LA(LC(H)))>;
         };
 
         // Finder: folders - Finder: Documents
@@ -276,20 +276,20 @@
         };
 
         // TD = tap dance.
-        // ╭──────────────────────────────────────────────────────────╮
-        // │                  │                   │                   │
-        // │                  │                   │                   │
-        // │ Move tab to left │                   │ Move tab to right │
-        // │ Go to tab left   │                   │ Go to tab right   │
-        // ╰──────────────────────────────────────────────────────────╯
+        // ╭──────────────────────────────────────────────────────╮
+        // │                  │ Finder top    │ top               │
+        // │                  │ Finder bottom │ bottom            │
+        // │ Move tab to left │               │ Move tab to right │
+        // │ Go to tab left   │               │ Go to tab right   │
+        // ╰──────────────────────────────────────────────────────╯
 
         layer_2 {
             display-name = "Blender";
             bindings = <
-                &ind_bat           &ind_con  &trans
-                &trans             &trans    &trans
-                &kp RC(RS(PG_UP))  &trans    &kp RC(RS(PG_DN))
-                &kp LA(LG(LEFT))   &trans    &kp LA(LG(RIGHT))
+                &ind_bat           &kp LA(UP)   &kp LG(UP)
+                &trans             &kp LG(DOWN) &kp LG(DOWN)
+                &kp RC(RS(PG_UP))  &trans       &kp RC(RS(PG_DN))
+                &kp LA(LG(LEFT))   &trans       &kp LA(LG(RIGHT))
             >;
             sensor-bindings = <&encoder_volume>;
         };
